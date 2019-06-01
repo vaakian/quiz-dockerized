@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  quiz-backend:
+    restart: always
+    build: .
+    volumes:
+      - ./backend:/usr/src/app
+    ports:
+      - 801:8888
+  website:
+    restart: always
+    image: nginx
+    ports:
+      - 83:80
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d
+      - ./nginx/log:/var/log/nginx 
+      - ./website:/usr/share/nginx/html
+    depends_on:
+      - quiz-backend

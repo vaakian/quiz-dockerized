@@ -1,0 +1,7 @@
+flask
+Flask-Cors
+gunicorn
+gevent
+pymysql
+pymysql-pool
+requests
